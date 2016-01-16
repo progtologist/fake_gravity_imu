@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<launch>
+	<node pkg="fake_gravity_imu" type="fake_gravity_imu_node" name="fake_gravity_imu_node">
+		<param name="source_frame" value="/world" />
+		<param name="target_frame" value="/ft_sensor" />
+	</node>
+</launch>
