@@ -53,6 +53,7 @@ int main(int argc, char **argv) {
   acc.header.frame_id = source_frame;
   acc.vector.z = - 9.81;
   listener.waitForTransform(target_frame,source_frame,ros::Time(0),ros::Duration(5));
+  ros::Rate r(100);
   while(ros::ok()) {
     geometry_msgs::Vector3Stamped acc_tool;
     try {
@@ -66,6 +67,7 @@ int main(int argc, char **argv) {
     msg.header= acc_tool.header;
     msg.linear_acceleration = acc_tool.vector;
     pub.publish(msg);
+    r.sleep();
   }
   return 0;
 }
