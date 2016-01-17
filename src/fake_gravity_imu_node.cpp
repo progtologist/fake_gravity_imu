@@ -51,7 +51,7 @@ int main(int argc, char **argv) {
   nh.getParam("source_frame", source_frame);
   nh.getParam("target_frame", target_frame);
   acc.header.frame_id = source_frame;
-  acc.vector.z = 9.81;
+  acc.vector.z = - 9.81;
   listener.waitForTransform(target_frame,source_frame,ros::Time(0),ros::Duration(5));
   while(ros::ok()) {
     geometry_msgs::Vector3Stamped acc_tool;
